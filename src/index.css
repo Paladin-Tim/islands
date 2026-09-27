@@ -1,0 +1,183 @@
+@property --sky-top {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #2f7ec4;
+}
+@property --sky-mid {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #79c4ef;
+}
+@property --sky-bottom {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e7f4fb;
+}
+@property --glow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #fff6d0;
+}
+@property --ink {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #102033;
+}
+@property --chrome {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f4fbff;
+}
+@property --cloud {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --ground {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #3f7a3a;
+}
+@property --sun-x {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+@property --sun-y {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 18%;
+}
+@property --moon-x {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 30%;
+}
+@property --moon-y {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 40%;
+}
+@property --sun-opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+@property --moon-opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --star-opacity {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+@property --cloud-alpha {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.82;
+}
+@property --shadow {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.1;
+}
+@property --glint {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.5;
+}
+@property --vignette {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.1;
+}
+@property --light-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 180deg;
+}
+
+:root {
+  --header-h: 4.75rem;
+  --footer-h: 4.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  background: var(--sky-bottom);
+  transition:
+    --sky-top 0.9s linear,
+    --sky-mid 0.9s linear,
+    --sky-bottom 0.9s linear,
+    --glow 0.9s linear,
+    --ink 0.9s linear,
+    --chrome 0.9s linear,
+    --cloud 0.9s linear,
+    --ground 0.9s linear,
+    --sun-x 0.9s linear,
+    --sun-y 0.9s linear,
+    --moon-x 0.9s linear,
+    --moon-y 0.9s linear,
+    --sun-opacity 0.9s linear,
+    --moon-opacity 0.9s linear,
+    --star-opacity 0.9s linear,
+    --cloud-alpha 0.9s linear,
+    --shadow 0.9s linear,
+    --glint 0.9s linear,
+    --vignette 0.9s linear,
+    --light-angle 0.9s linear;
+}
+
+html[data-phase='night'] {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root,
+.app {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Manrope, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--ink) 70%, transparent);
+  outline-offset: 3px;
+}
+
+.app {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+  }
+}

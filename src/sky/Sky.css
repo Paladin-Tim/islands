@@ -1,0 +1,155 @@
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-bottom) 100%);
+  pointer-events: none;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  opacity: var(--star-opacity);
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(to bottom, #000 0 40%, transparent 68%);
+  background-image:
+    radial-gradient(1px 1px at 8% 12%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 18% 22%, #fff, transparent),
+    radial-gradient(1px 1px at 27% 8%, rgb(255 255 255 / 0.8), transparent),
+    radial-gradient(1px 1px at 36% 18%, #fff, transparent),
+    radial-gradient(2px 2px at 44% 11%, #fff, transparent),
+    radial-gradient(1px 1px at 52% 24%, rgb(255 255 255 / 0.75), transparent),
+    radial-gradient(1px 1px at 61% 9%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 70% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 7%, rgb(255 255 255 / 0.85), transparent),
+    radial-gradient(1px 1px at 88% 16%, #fff, transparent),
+    radial-gradient(1px 1px at 14% 34%, #fff, transparent),
+    radial-gradient(1px 1px at 24% 30%, rgb(255 255 255 / 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 33% 38%, #fff, transparent),
+    radial-gradient(1px 1px at 48% 32%, #fff, transparent),
+    radial-gradient(1px 1px at 57% 40%, rgb(255 255 255 / 0.8), transparent),
+    radial-gradient(2px 2px at 66% 28%, #fff, transparent),
+    radial-gradient(1px 1px at 74% 36%, #fff, transparent),
+    radial-gradient(1px 1px at 84% 26%, rgb(255 255 255 / 0.75), transparent),
+    radial-gradient(1px 1px at 93% 34%, #fff, transparent),
+    radial-gradient(1px 1px at 5% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 41% 6%, rgb(255 255 255 / 0.7), transparent),
+    radial-gradient(1px 1px at 96% 12%, #fff, transparent);
+}
+
+.sun,
+.moon {
+  position: absolute;
+  translate: -50% -50%;
+}
+
+.sun {
+  left: var(--sun-x);
+  top: var(--sun-y);
+  width: 22rem;
+  height: 22rem;
+  opacity: var(--sun-opacity);
+  background: radial-gradient(
+    circle,
+    #fff 0%,
+    color-mix(in srgb, var(--glow) 55%, #fff) 12%,
+    color-mix(in srgb, var(--glow) 24%, transparent) 32%,
+    transparent 66%
+  );
+}
+
+.moon {
+  left: var(--moon-x);
+  top: var(--moon-y);
+  width: 4.4rem;
+  height: auto;
+  opacity: var(--moon-opacity);
+  filter: drop-shadow(0 0 18px rgb(210 222 240 / 0.45));
+}
+
+.clouds {
+  position: absolute;
+  top: var(--header-h);
+  right: 0;
+  bottom: var(--footer-h);
+  left: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  left: 0;
+  width: auto;
+  opacity: var(--cloud-alpha);
+  animation: drift linear infinite;
+}
+
+.c2,
+.c3,
+.c4 {
+  mix-blend-mode: screen;
+}
+
+.c1 {
+  top: 0%;
+  height: 24%;
+  animation-duration: 92s;
+  animation-delay: -8s;
+}
+
+.c2 {
+  top: 25%;
+  height: 16%;
+  animation-duration: 154s;
+  animation-delay: -77s;
+}
+
+.c3 {
+  top: 42%;
+  height: 28%;
+  animation-duration: 218s;
+  animation-delay: -54s;
+}
+
+.c4 {
+  top: 71%;
+  height: 24%;
+  animation-duration: 276s;
+  animation-delay: -207s;
+}
+
+.haze {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36%;
+  background: linear-gradient(to top, color-mix(in srgb, var(--sky-bottom) 75%, transparent), transparent);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 40%, transparent 48%, rgb(0 0 0 / calc(var(--vignette) * 0.55)) 100%);
+}
+
+@keyframes drift {
+  from {
+    translate: -100% 0;
+  }
+  to {
+    translate: calc(100vw + 100%) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud {
+    animation: none;
+  }
+
+  .c1 { left: 8%; }
+  .c2 { left: 62%; }
+  .c3 { left: 2%; }
+  .c4 { left: 48%; }
+}

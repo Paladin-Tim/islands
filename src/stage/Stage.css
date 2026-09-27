@@ -1,0 +1,73 @@
+.stage {
+  position: absolute;
+  z-index: 1;
+  inset: var(--header-h, 4.75rem) 0 var(--footer-h, 4.25rem);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.caption {
+  position: absolute;
+  top: 16%;
+  left: max(2rem, 6vw);
+  max-width: 14ch;
+}
+
+.kicker,
+.title,
+.note {
+  margin: 0;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  opacity: 0.72;
+}
+
+.kicker::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(4.2rem, 9vw, 8rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+}
+
+.note {
+  margin-top: 1rem;
+  max-width: 24ch;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  opacity: 0.78;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    transition: none;
+  }
+}
